@@ -1,0 +1,21 @@
+{
+  "name": "first-api",
+  "version": "1.0.0",
+  "description": "My first Rest API, developed as study material.",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mixzira/First-API.git"
+  },
+  "keywords": [],
+  "author": "mixzira",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mixzira/First-API/issues"
+  },
+  "homepage": "https://github.com/mixzira/First-API#readme"
+}
