@@ -23,9 +23,24 @@ app.get('/books', (req, res) => { // Creating a defined route for response.
     res.status(200).json(books) // Returning a Json array.
 })
 
+app.get('/books/:id', (req, res) => { // Search for a specific book in the variable.
+    let index = searchBook(req.params.id) // Search position of the book indicated in the request.
+    res.json(books[index]) // Returns only the content of the searched book.
+})
+
 app.post('/books', (req, res) => { // Indicates data to be added from a request.
     books.push(req.body) // Adds request content to books variable.
     res.status(201).send('The book has been successfully registered.') // Replies operation success. 
 })
+
+app.put('/books/:id', (req, res) => {  // Changes the book data indicated in the parameters.
+    let index = searchBook(req.params.id) // Search position of the book indicated in the request.
+    books[index].title = req.body.title // Change book title.
+    res.json(books) // Returns variable with the changed data.
+})
+
+function searchBook(id) { // Search the book based on the parameters offered based on the condition equal to the one provided.
+    return books.findIndex(books => books.id == id)
+}
 
 export default app // Creating an export for the content of this script.
