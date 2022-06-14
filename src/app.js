@@ -1,4 +1,10 @@
 import express from 'express' // Importing express module.
+import db from './database/mongoose.js'
+
+db.on('error', console.log.bind(console, 'Connection error!'))
+db.once('open', () => {
+    console.log('Data base connection is sucefull!')
+})
 
 const app = express()
 
