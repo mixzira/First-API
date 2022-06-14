@@ -30,11 +30,6 @@ app.get('/books/:id', (req, res) => { // Search for a specific book in the varia
     res.json(books[index]) // Returns only the content of the searched book.
 })
 
-app.post('/books', (req, res) => { // Indicates data to be added from a request.
-    books.push(req.body) // Adds request content to books variable.
-    res.status(201).send('The book has been successfully registered.') // Replies operation success. 
-})
-
 app.put('/books/:id', (req, res) => {  // Changes the book data indicated in the parameters.
     let index = searchBook(req.params.id) // Search position of the book indicated in the request.
     books[index].title = req.body.title // Change book title.
