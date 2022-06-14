@@ -1,5 +1,6 @@
 import express from 'express' // Importing express module.
 import db from './database/mongoose.js'
+import books from './database/models/book.js'
 
 db.on('error', console.log.bind(console, 'Connection error!'))
 db.once('open', () => {
@@ -10,7 +11,7 @@ const app = express()
 
 app.use(express.json())
 
-const books = [ // Creating an Array with Books 
+/*const books = [ // Creating an Array with Books 
     {
         id: 1,
         "title": "Lord of the Rings"
@@ -19,14 +20,16 @@ const books = [ // Creating an Array with Books
         id: 2,
         "title": "I'm the Legend"
     }
-]
+]*/
 
 app.get('/', (req, res) => { // Using express with no defined route.
     res.status(200).send('First API') // Returning simple text response.
 })
 
 app.get('/books', (req, res) => { // Creating a defined route for response.
-    res.status(200).json(books) // Returning a Json array.
+    books.find((err, books) => {
+        res.status(200).json(books) // Returning a Json array.
+    })
 })
 
 app.get('/books/:id', (req, res) => { // Search for a specific book in the variable.
