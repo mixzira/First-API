@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "My first Rest API, developed as study material.",
   "main": "server.js",
+  "type": "module",
   "scripts": {
     "dev": "nodemon server.js",
     "start": "node server.js"
@@ -20,5 +21,8 @@
   "homepage": "https://github.com/mixzira/First-API#readme",
   "devDependencies": {
     "nodemon": "^2.0.16"
+  },
+  "dependencies": {
+    "express": "^4.18.1"
   }
 }
