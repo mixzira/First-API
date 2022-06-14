@@ -40,10 +40,10 @@ app.put('/books/:id', (req, res) => {  // Changes the book data indicated in the
 })
 
 app.delete('/books/:id', (req, res) => { // Delete a specific data.
-    let {id} = req.params 
-    let index = searchBook(id)
-    books.splice(index, 1)
-    res.send(`Book ${id} removido com sucesso!`)
+    let {id} = req.params // Deconstructing parameters and adding the variable.
+    let index = searchBook(id) // Search position of the book indicated in the request.
+    books.splice(index, 1) // Deleting specific data.
+    res.send(`Book ${id} removido com sucesso!`) // Sending confirmation of deleted data.
 })
 
 function searchBook(id) { // Search the book based on the parameters offered based on the condition equal to the one provided.
